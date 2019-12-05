@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <title>Show Employee</title>
+    </head>
+    <body>
+    <a href="/employee/addEmployee">Add Employee</a>        
+        <center>
+            <h3>Employee</h3>
+            <table border="2">
+                <tr>
+                    <th>Employee Name</th>
+                    <th>Salary</th>
+                    <th>Gender</th>
+                    <th>Department</th>
+                    <th></th>
+                </tr>
+                <% data.forEach(function(emp){%>
+                    <tr>
+                        <td><%= emp.EmployeeName %></td>
+                        <td><%= emp.EmployeeSalary %></td>
+                        <td><%= emp.EmployeeGender %></td>
+                        <td>
+                            <% deptdata.forEach(function(dept){
+                                if(dept._id == emp.Department){%>
+                                <%= dept.DepartmentName %>
+                            <%  }
+                             })%>
+
+                        </td>
+                        <td><a href="/employee/editEmployee/<%= emp._id %>">Edit</a></td>
+                        <td><a href="/employee/deleteEmployee/<%= emp._id %>">Delete</a></td>
+                    </tr>
+                <% })%>
+            </table>
+        </center>
+    </body>
+</html>

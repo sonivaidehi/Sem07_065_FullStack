@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>File Upload</title>
+</head>
+<body>
+    <form action="/uploadsinglefile" method="post" enctype="multipart/form-data">
+        <h3>Single File</h3><br>
+        Select File: <input type="file" name="singlefile" ><br><br>
+        <input type="submit" value="Upload Single File">
+    </form>
+    <br><br>
+    <form action="/uploadmultiplefile" method="post" enctype="multipart/form-data">
+        <h3>Multiple File</h3><br>
+        Select File: <input type="file" name="multiplefile" multiple ><br><br>
+        <input type="submit" value="Upload Single File">
+    </form>
+</body>
+</html>

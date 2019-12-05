@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <title>Display Department</title>
+    </head>
+    <body>
+        <a href="/department/addDepartment">new department</a>
+        <center>
+            <h2>Departments</h2>
+            <table border="2">
+                <tr>
+                    <th>Department Name</th>
+                    <th></th>
+                </tr>
+                <% data.forEach(function(dept){%>
+                    <tr>
+                        <td><%= dept.DepartmentName %></td>
+                        <td><a href="/department/EditDepartment/<%= dept._id %>">Edit</a> | <a href="/department/DeleteDepartment/<%= dept._id %>">Delete</a> </td>
+                    </tr>
+                <% }); %>
+            </table>
+        </center>
+    </body>
+</html>

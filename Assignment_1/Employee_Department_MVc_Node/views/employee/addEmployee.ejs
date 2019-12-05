@@ -1,0 +1,61 @@
+<html>
+    <head>
+        <title>Add employee</title>
+    </head>
+    <body>
+
+        <% if(!data){ %>
+        <form method="POST" action="/employee/addemployeepost"> 
+            <input type="text" name="id" hidden>
+            <br>
+            Name: <input type="text" name="empname">
+            <br>
+            Salary: <input type="text" name="salary">
+            <br>
+            Gender: <input type="radio" name="empgender" value="Male" checked> Male
+            &nbsp;
+            <input type="radio" name="empgender" value="Female" > Female <br>
+            <br>
+            Department: <select name="dept">
+                <% deptdata.forEach(function(dept){%>
+                    <option value="<%= dept._id %>"><%= dept.DepartmentName %></option>        
+                <%}) %>
+            </select>
+            <br>
+            <input type="submit" value="Add">
+        </form>
+        <% }else{ %>
+            <form method="POST" action="/employee/addemployeepost"> 
+                <input type="text" name="id" hidden value="<%= data._id %>">
+                <br>
+                Name: <input type="text" name="empname" value="<%= data.EmployeeName %>">
+                <br>
+                Salary: <input type="text" name="salary" value="<%= data.EmployeeSalary %>">
+                <br>
+                Gender:
+                <% if(data.EmployeeGender == "Female") {%> 
+                    <input type="radio" name="empgender" value="Male" > Male
+                    &nbsp;
+                    <input type="radio" name="empgender" value="Female" checked > Female <br>
+                <% }else{%>
+                    <input type="radio" name="empgender" value="Male" checked > Male
+                    &nbsp;
+                    <input type="radio" name="empgender" value="Female" > Female <br>
+                <%} %>
+                <br>
+                Department: <select name="dept">
+                    <% deptdata.forEach(function(dept){%>
+                        <% if(dept._id == data.Department){%>
+                            <option value="<%= dept._id %>" selected><%= dept.DepartmentName %></option>  
+                        <%}else{%>
+                            <option value="<%= dept._id %>"><%= dept.DepartmentName %></option>  
+                        <%}%>
+                    <%}) %>
+                </select>
+                <br>
+                <input type="submit" value="Add">
+            </form>
+
+        <% } %>
+    </body>
+</html>

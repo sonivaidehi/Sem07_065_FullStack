@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <title>add department</title>
+    </head>
+    <body>
+
+        <% if(!data){%>
+        <form method="POST" action="/department/addDepartmentpost">
+            <input type="text" name="id"  hidden="">  <br>
+            Name: <input name="deptname" type="text" >
+            <br>
+            <input type="submit" value="add">
+        </form>
+        <% }else{ %>
+            <form method="POST" action="/department/addDepartmentpost">
+                <input type="text" name="id"   value="<%= data._id %>" hidden="">  <br>
+                Name: <input name="deptname" type="text" value="<%= data.DepartmentName %>">
+                <br>
+                <input type="submit" value="add">
+            </form>
+            
+        <%}%>
+    </body>
+</html>
