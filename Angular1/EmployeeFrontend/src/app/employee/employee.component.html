@@ -1,0 +1,35 @@
+<!-- <p>
+  employee works!
+</p> -->
+<form #employeeForm="ngForm" (ngSubmit)="onSubmit(employeeForm)">
+  <input type="hidden" name="_id" #_id="ngModel" [(ngModel)] = "employeeService.selectedEmployee._id">
+  <br>
+  Name: <input type="text" name="EmployeeName" #EmployeeName="ngModel" [(ngModel)] = "employeeService.selectedEmployee.EmployeeName">
+  <br>
+  Salary: <input type="text" name="EmployeeSalary" #EmployeeSalary="ngModel" [(ngModel)] = "employeeService.selectedEmployee.EmployeeSalary">
+  <br>
+  Age: <input type="text" name="EmployeeAge" #EmployeeAge="ngModel" [(ngModel)] = "employeeService.selectedEmployee.EmployeeAge">
+  
+  <br>
+  <button type="button" (click)="resetForm(employeeForm)" >Reset</button>
+  &nbsp;
+  <button type="submit">Submit</button>
+</form>
+
+<table border="2">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Salary</th>
+      <th>Age</th>
+    </tr>
+  </thead>
+  <!-- <p>{{employeeeService.employees}}</p> -->
+  
+  <tr *ngFor="let employee of emps">
+    <td>hi</td>
+  </tr>
+  <!-- <li *ngFor="let employee of employeeeService.employees">
+    <ul>{{employee}}</ul>
+  </li> -->
+</table>
